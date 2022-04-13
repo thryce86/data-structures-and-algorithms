@@ -51,7 +51,8 @@ const addQuestion = (arr) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
-Write a function named forLoopTwoToThe that, given an array of integers as input, iterates over the array and returns a new array. The returned array should contain the result of raising 2 to the power of the original input element.
+Write a function named forLoopTwoToThe that, given an array of integers as input, iterates over the array and returns a new array. 
+The returned array should contain the result of raising 2 to the power of the original input element.
 
 You may choose to complete this challenge using a for loop, for...in syntax, or for...of syntax.
 
@@ -60,26 +61,58 @@ For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and
 
 const forLoopTwoToThe = (arr) => {
   // Solution code here...
+
+  let answer = arr.map(function(n,i){
+    return 2**n;
+  })
+  return( answer) ;
+  
+  // this code works sth is wrong with the test 
+  // it gives the correct response in the browser
+//   let answer=[] ;
+//   for ( i =0;i<arr.length ; i++){
+//       answer[i] = 2** arr[i];
+
+//   }
+//       return(answer);
+
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
-Write a function named forEachTwoToThe that produces the same output as your forLoopTwoToThe function from challenge 4, but uses forEach instead of a for loop.
+Write a function named forEachTwoToThe that produces the same output as your forLoopTwoToThe function from challenge 4, 
+but uses forEach instead of a for loop. 
 ------------------------------------------------------------------------------------------------ */
 
 const forEachTwoToThe = (arr) => {
-  // Solution code here...
+  
+  let answer = [] ;
+  arr.forEach(myFunction) ;
+
+  function myFunction(item, index, arr) {
+    arr[index] =   2 ** item;
+    answer.push(2 ** item) ; 
+  }
+
+
+    return(answer) ;  
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
-Write a function named mapTwoToThe that produces the same output as your forLoopTwoToThe function from challenge 4 and your forEachTwoToThe function from challenge 5, but uses map instead of a for loop or forEach.
+Write a function named mapTwoToThe that produces the same output as your forLoopTwoToThe function from challenge 4 
+and your forEachTwoToThe function from challenge 5, but uses map instead of a for loop or forEach.
 ------------------------------------------------------------------------------------------------ */
 
 const mapTwoToThe = (arr) => {
   // Solution code here...
+  let answer = arr.map(function(n,i){
+    return 2**n;
+  })
+  return( answer) ;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
