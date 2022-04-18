@@ -141,15 +141,14 @@ const returnNames = (arr) => {
   // Solution code here...
 
   let output =arr.reduce((v1 ,v2 ) => {
+        console.log(v1) ;
 
-    
-       
-  
-      },{} )
+    v1.push(   v2.name ) ;
+
+    return( v1) ;
+
+      },[] )
       return(output) ;
-
-
-
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -160,14 +159,105 @@ Write a function named reversedString that takes in a string and returns a strin
 Note: You must use reduce for this challenge. You may not use the built-in .reverse() string method.
 ------------------------------------------------------------------------------------------------ */
 
-const reversedString = (str) => {
+// const reversedString = (str) => {
+//   // Solution code here...
+// // make a temp array 
+// arr= Array.from(str) ;
+
+// // console.log(arr) ; 
+//   let output =arr.reduce((v1 ,v2 ) => {
+//       //   console.log('v1='  +  v1);
+//       //   console.log( typeof v1);
+//       //   console.log('v2  = ' + typeof v2)
+//       // console.log(v1+v2) ; 
+//       //  v1=v1+v2.length ; 
+
+//       v1.unshift(v2) ;
+//     console.log(v1) ;
+
+//     // v1=temp
+//     return(v1) ;
+    
+
+//       } , [] )
+
+//     // let answer = output.toString().replace(',','' );
+//   let answer = output.join(',');
+//   let temp = answer.split(",");
+//   answer = temp.join('');
+  
+//   return(answer) ;
+// };
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+const reversedWord = (str) => {
   // Solution code here...
+// make a temp array 
+arr= Array.from(str) ;
+
+// console.log(arr) ; 
+  let output =arr.reduce((v1 ,v2 ) => {
+  
+
+      v1.unshift(v2) ;
+    // console.log(v1) ;
+
+    // v1=temp
+    return(v1) ;
+    
+
+      } , [] )
+
+    // let answer = output.toString().replace(',','' );
+  let answer = output.join(',');
+  let temp = answer.split(",");
+  answer = temp.join('');
+  
+  return(answer) ;
 };
+
+
+const reversedString = (str) => {
+  let splitWord=str.split(' ');
+  // console.log(splitWord);
+
+  let output =splitWord.reduce( (v1 ,v2 ) =>{
+    // console.log(reversedWord(v2)) ; 
+    v1.push(reversedWord(v2))
+    // console.log(v1) ;
+    
+    return( v1 ) ;
+  }
+ ,[] ) 
+
+ let answer = output.join(',');
+  console.log(answer) ;
+  let temp = answer.split(",");
+  console.log(temp) ;
+  answer = temp.join(' ');
+  
+
+return (answer ) ;
+}//end reversedString
+  
+  
+  
+
+
+
+
+// console.log( reversedString('Code 301') )
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
-Write a function named countNumberOfChildren that, given the array of characters, below, uses reduce to return the total number of children in the data set.
+Write a function named countNumberOfChildren that, given the array of characters, 
+below, uses reduce to return the total number of children in the data set.
 ------------------------------------------------------------------------------------------------ */
 
 const characters = [
@@ -215,6 +305,26 @@ const characters = [
 
 const countNumberOfChildren = (arr) => {
   // Solution code here...
+
+   // Solution code here...
+   let kid_number =arr.reduce( (v1 , index ) =>  {
+    
+    // console.log(v1);
+
+    try{ 
+      // console.log(typeof index.children.length != "undefined") ;
+      return(v1 + index.children.length) ;
+       } 
+    catch(e){
+      // console.log('would be an error') ;
+      return(v1) ;
+    }
+
+  }
+,0 
+  )
+return( kid_number)   ;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -226,7 +336,8 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
-  // Solution code here...
+ 
+
 };
 
 /* ------------------------------------------------------------------------------------------------
