@@ -25,23 +25,48 @@ let starWarsPeople = [
 ];
 
 
-const sortStarWarsCharacters = (listy) => {
+const sortStarWarsCharacters = (starWarsArr) => {
+  // Solution code here...
 
-  listy.sort((a, b) => (parseInt(a.height) > parseInt(b.height)  ) ? -1 :1 )
-  
-  
-return(listy) ;
 
+  let outputArray = starWarsArr.sort(  (a,b)  =>{
+
+    return(b.height - a.height)
+    
+  });
+
+  return(outputArray) ;
+  
+
+  
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
-Write a function named removeThree that takes an index and an array. The function should removes three items in the array starting with the value at the index.
+Write a function named removeThree that takes an index and an array. 
+The function should removes three items in the array starting with the value at the index.
 ------------------------------------------------------------------------------------------------ */
+
 
 const removeThree = (idx, arr) => {
   // Solution code here...
+let startSlice = idx ;
+let endSlice =  idx + 4;
+let beg=arr[0];
+let end =  arr[arr.length -1] ;
+
+console.log( startSlice , endSlice , beg,end );
+
+ function range(start, end) {
+          return Array(end - start + 1).fill().map((_, idx) => start + idx)
+      }
+
+  var seqNumbers1 = range(beg, startSlice);
+  var seqNumbers2 = range(endSlice,end) ;
+  let output = seqNumbers1.concat(seqNumbers2);
+
+return( output ) ;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -52,7 +77,15 @@ Write a function named joinArray that takes an array and joins all of the elemen
 
 const joinArray = (arr) => {
   // Solution code here...
+
+  let output = arr.reduce( (prev , curr) => {
+    return(prev + ' '+ curr);
+  
+},);
+
+  return(output);
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -61,27 +94,48 @@ Write a function named howMuchPencil that takes in a string, as written on the s
 
 As you sharpen the pencil, the string will become shorter and shorter, starting by removing the first letter.
 
-Your function should use slice within a loop and return an array of each successive string result from losing letters to the sharpener, until nothing is left.
+Your function should use slice within a loop and return an array of each successive string 
+result from losing letters to the sharpener, until nothing is left.
 
 For example, if the input is 'Welcome', the output will be:
 ['Welcome', 'elcome', 'lcome', 'come', 'ome', 'me', 'e', ''].
 ------------------------------------------------------------------------------------------------ */
 
+
 const howMuchPencil = (str) => {
   let result = [];
   // Solution code here...
-  return result;
-};
+  let lengthFull = str.length ;
+  for (let i=0; i<lengthFull+1; i++) {
+     console.log(str.slice(i,lengthFull));
+    result.push(str.slice(i,lengthFull)) ;
+
+  }   
+
+  return result ;
+
+  }
+
+
+ 
+
+
+
+
+ 
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
-Write a function name wordsToCharList that, given a string as input, returns a new array where every element is a character of the input string.
+Write a function name wordsToCharList that, given a string as input, returns a new array where 
+every element is a character of the input string.
 
 For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
 const wordsToCharList = (arr) => {
+  return(arr.split(''));
   // Solution code here...
 };
 
@@ -89,9 +143,11 @@ const wordsToCharList = (arr) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
-You are making a grocery list for ingredients needed in the gruffalo crumble recipe, below. Rather than taking the entire recipe, you only want a list of the item names.
+You are making a grocery list for ingredients needed in the gruffalo crumble recipe, below. 
+Rather than taking the entire recipe, you only want a list of the item names.
 
-Write a function named listFoods that takes in the recipe and returns a new array of the food items without any amount or units. Just the name. For example, '1 cup flour' will return 'flour'.
+Write a function named listFoods that takes in the recipe and returns a new array of the food 
+items without any amount or units. Just the name. For example, '1 cup flour' will return 'flour'.
 
 Use slice for this function, maybe more than once. The Array.indexOf() method may also be helpful.
 
@@ -126,11 +182,23 @@ const gruffaloCrumble = {
   ],
 };
 
-
 const listFoods = (recipe) => {
   let result = [];
+
+  let outputArray = recipe.ingredients.map((temp) =>{
+
+    // this isnt the number to use but rather where to start counting from 
+    console.log(temp.indexOf(' ',3));
+
+    let startIndex = temp.indexOf(' ', 3) ;
+    // let endIndex =  temp[temp.length -1];
+    // console.log(endIndex);
+    
+    return(  temp.slice(startIndex+1 ,temp.length ).trim() );
+    
+  });
   // Solution code here...
-  return result;
+  return outputArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
