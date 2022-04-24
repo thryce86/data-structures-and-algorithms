@@ -9,7 +9,7 @@ using the 'reduce' method.
 E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
-  maxNum = arr.reduce( (prev,curr) =>{
+  let maxNum = arr.reduce( (prev,curr) =>{
   if(curr>prev){
     return(curr);
   }else{
@@ -17,8 +17,8 @@ const maxInArray = (arr) => {
   }
   
   });
-  return(maxNum);
-  
+ 
+  return(maxNum) ;
   };
 
 /* ------------------------------------------------------------------------------------------------
@@ -36,7 +36,7 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 const getCourseKeys = (obj) => {
   // Solution code here...
 
-  let tt =obj.keys();
+  let tt =Object.keys(obj);
   
 
   
@@ -44,18 +44,17 @@ const getCourseKeys = (obj) => {
   return(tt);
 
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
-Write a function named checkValues that takes in an object and a value and returns true if the value is in the object.
+Write a function named checkValues that takes in an object and a value and returns true 
+if the value is in the object.
 
 
 ------------------------------------------------------------------------------------------------ */
 
-const checkValues = (obj, value) => {
-  // Solution code here...
-};
+const checkValues = (obj, value) =>Object.values(obj).includes(value)
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -76,16 +75,30 @@ HR has asked you to change the data to make it easier to print so that it looks 
 
 ------------------------------------------------------------------------------------------------ */
 
-const updateNumbers = (obj) => {
-  // Solution code here...
-};
 
+const updateNumbers = (obj) => {
+  let l1 = Object.keys(obj);
+   let l2 = Object.values( obj) ;
+ 
+   let output=[] ;
+   
+ for (let i in l1){
+   output.push( l1[i]+ ': '+  l2[i]  );
+ }
+   // console.log(output);
+   return(output);
+ };
+                                
+ 
+
+ 
 
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
-Write a function named getHouses that returns a new array containing the names of all of the houses in the data set.
+Write a function named getHouses that returns a new array containing the names of
+ all of the houses in the data set.
 ------------------------------------------------------------------------------------------------ */
 
 const characters = [
@@ -133,14 +146,23 @@ const characters = [
 
 const getHouses = (arr) => {
   let houses = [];
-  // Solution code here...
+console.log(  arr.length );
+
+for (let i= 0  ;i<arr.length; i++){
+  // houses.includes(arr[i].house) ? "": houses.push(arr[i].house) ;
+  houses.push(arr[i].house)
+  
+}
+  
+  
   return houses;
 };
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
-Write a function named hasChildrenValues that uses Object.values to determine if any given character in the data set has children.
+Write a function named hasChildrenValues that uses Object.values to determine if any 
+given character in the data set has children.
 
 This function should take in an array of data and a character name and return a Boolean.
 
@@ -150,9 +172,18 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
+  // https://stackoverflow.com/questions/7364150/find-object-by-id-in-an-array-of-javascript-objects
+  // myArray.find(x => x.id === '45').foo;
+  let kids = arr.find(x =>  x.name=== character).children ;
+
+  // console.log(typeof(kids) ==='undefined') ;
+  let out =   typeof(kids) ==='undefined' ?  false :  true  ; 
+  
+  return out ;
+ 
 
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
