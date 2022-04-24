@@ -190,6 +190,7 @@ const listFoods = (recipe) => {
     // let endIndex =  temp[temp.length -1];
     // console.log(endIndex);
     
+    
     return(  temp.slice(startIndex+1 ,temp.length ).trim() );
     
   });
