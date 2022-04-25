@@ -141,14 +141,42 @@ Here is sample data for the 9:00 sales: { sales: '88 cookies', time: '9 a.m.' }.
 Write a function named salesData that uses forEach to iterate over the hourlySales array and create an object for each hour. Return an array of the formatted data.
 ------------------------------------------------------------------------------------------------ */
 
-const salesData = (hours, data) => {
-  // Solution code here...
+const salesData = ( hours, stores) => {
+
+  let totals=[];
+ 
+  for( let i=0 ; i< hoursOpen.length ; i++){
+     let temp={} ;
+    
+    // console.log(  temp.time);
+     // console.log(   cookieStores.length );
+     let sums=0;
+      // for( let j=0 ; j< stores.length ; j++){
+      //   sums=sums+stores[j][i] ;
+      //   // console.log(stores[i][j])  ;
+      // }
+    
+    
+    temp['sales']=(stores[i] + ' cookies');
+    temp.time=hours[i];
+    // console.log(i);
+     // totals
+
+      console.log(temp);
+    totals.push(temp);
+    
+    
+      
+  }
+
+return(totals);
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
-Write a function named howManyTreats that will return the quantity of treats you need to pick up from the pet store today from this array. The structure of the array will not change.
+Write a function named howManyTreats that will return the quantity of treats you need to pick up 
+from the pet store today from this array. The structure of the array will not change.
 ------------------------------------------------------------------------------------------------ */
 
 const errands = [
@@ -168,6 +196,9 @@ const errands = [
 
 const howManyTreats = (arr) => {
   // Solution code here...
+  
+return(arr[2].items[1].quantity );
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
