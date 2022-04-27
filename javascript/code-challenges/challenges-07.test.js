@@ -24,8 +24,10 @@ let starWarsPeople = [
   },
 ];
 
+
 const sortStarWarsCharacters = (starWarsArr) => {
   // Solution code here...
+
 
   let outputArray = starWarsArr.sort(  (a,b)  =>{
 
@@ -34,6 +36,8 @@ const sortStarWarsCharacters = (starWarsArr) => {
   });
 
   return(outputArray) ;
+  
+
   
 };
 /* ------------------------------------------------------------------------------------------------
